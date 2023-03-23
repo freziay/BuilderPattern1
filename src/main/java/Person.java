@@ -1,4 +1,3 @@
-import java.util.HashSet;
 import java.util.Objects;
 
 public class Person {
@@ -12,7 +11,7 @@ public class Person {
         if (this.name == null) {
             throw new IllegalStateException("Имя не заданo");}
         this.surname = personBuilder.getSurname();
-        if (this.name == null) {
+        if (this.surname == null) {
             throw new IllegalStateException("Фамилия не задана");}
         this.age = personBuilder.getAge();
         this.address = personBuilder.getAddress();
@@ -20,21 +19,15 @@ public class Person {
 
 
     public boolean hasAge() {
-        HashSet<String> hasAge = new HashSet<>();
-        PersonBuilder personBuilder = new PersonBuilder();
-        hasAge.add(personBuilder.getAddress());
-        if (hasAge.isEmpty() == true) {
+        if (this.age==0){
             return false;
         } else
             return true;
-
     }
 
     public boolean hasAddress() {
-        HashSet<String> hasAddress = new HashSet<>();
-        PersonBuilder personBuilder = new PersonBuilder();
-        hasAddress.add(personBuilder.getAddress());
-        if (hasAddress.isEmpty() == true) {
+
+        if (this.address==null) {
             return false;
         } else
             return true;
@@ -75,8 +68,10 @@ public class Person {
 
     public void happyBirthday() {
         this.age = age;
-        int ageHappyBirthday = age + 1;
-        System.out.println(ageHappyBirthday);
+        if(age>0) {
+            int ageHappyBirthday = age + 1;
+            System.out.println(ageHappyBirthday);
+        }
     }
 
     @Override
